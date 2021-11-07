@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arlopez- <arlopez-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arturo <Arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 11:12:43 by arlopez-          #+#    #+#             */
-/*   Updated: 2021/11/06 12:18:53 by arlopez-         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:23:05 by Arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,6 @@
 	int 			ft_toupper(int c);
 	int 			ft_memcmp(const void *s1, const void *s2, size_t n);
 	char			*ft_strnstr(const char *haystack, const char *needle, size_t len);
+	char 			*ft_substr(char const *s, unsigned int start, size_t len);
+	char 			**ft_split(char const *s, char c);
 #endif

@@ -11,12 +11,14 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-/*char *ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
     char    *result;
 
-
-    if(ft_strlen(s +start))
-    result = malloc()
-}*/
+    result = malloc(ft_strlen(s + start) * 4);
+    if(result)
+        ft_strlcpy(result, s + start, len);
+    return (result);
+}
