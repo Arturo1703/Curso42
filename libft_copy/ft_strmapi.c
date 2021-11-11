@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arlopez- <arlopez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/10 19:11:30 by arlopez-          #+#    #+#             */
-/*   Updated: 2021/11/11 15:29:50 by arlopez-         ###   ########.fr       */
+/*   Created: 2021/11/08 15:41:29 by arlopez-          #+#    #+#             */
+/*   Updated: 2021/11/11 16:02:18 by arlopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
-
-char	*ft_strdup(const char *src)
+#include <stdio.h>
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char	*result;
 	int		i;
-	int		j;
-	char	*aux;
+	int		size;
 
+	size = ft_strlen(s);
+	result = malloc(size);
 	i = 0;
-	if (!src)
-		return (0);
-	while (src[i] != '\0')
-		i++;
-	aux = malloc(i + 1);
-	if (aux != 0)
+	while (i < size)
 	{
-		j = 0;
-		while (j < i)
-		{
-			aux[j] = src[j];
-			j++;
-		}
-		aux[j] = '\0';
+		result[i] = f(i, s[i]);
+		printf("%d ",i);
+		i++;
 	}
-	return (aux);
+	return (result);
 }

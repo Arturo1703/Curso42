@@ -6,7 +6,7 @@
 /*   By: arlopez- <arlopez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 19:42:50 by arlopez-          #+#    #+#             */
-/*   Updated: 2021/11/06 12:17:06 by arlopez-         ###   ########.fr       */
+/*   Updated: 2021/11/08 16:29:48 by arlopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ int	ft_atoi(const char *str)
 		str++;
 		mychar = *str;
 	}
-	if (mychar == '-'){
-			count ++;
-			str++;
+	if (mychar == '-')
+	{
+		count ++;
+		str++;
 	}
 	if (mychar == '+')
-			str++;
+		str++;
 	num = number((char *)str);
 	if (count == 1)
 		num = num * -1;

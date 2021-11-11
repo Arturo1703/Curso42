@@ -3,48 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arturo <Arturo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arlopez- <arlopez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:09:41 by Arturo            #+#    #+#             */
-/*   Updated: 2021/11/07 11:35:53 by Arturo           ###   ########.fr       */
+/*   Updated: 2021/11/08 17:36:07 by arlopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char *ft_strtrim(char const *s1, char const *set)
+int		findiftrim(char const to_find, char const *array);
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char 	*aux;
+	char	*aux;
 	char	*result;
 	int		i;
 	int		size;
 
 	size = ft_strlen(s1);
-	aux = malloc(4 * size);
+	aux = malloc(size);
 	i = 0;
-	while	(findiftrim(s1[i],set))
+	while (findiftrim(s1[i], set))
 	{
 		size--;
 		i++;
 	}
-	ft_strlcpy(aux,s1 + i, size);
-	while (findiftrim(aux[size - 1],set))
+	ft_strlcpy(aux, s1 + i, size);
+	while (findiftrim(aux[size - 1], set))
 		size --;
-	result = malloc(4 * size);
+	result = malloc(size);
 	ft_strlcpy(result, aux, size);
-	return(result);
+	return (result);
 }
-int findiftrim(char const to_find, char const *array)
+
+int	findiftrim(char const to_find, char const *array)
 {
 	int	i;
 
 	i = 0;
-	while(array[i])
+	while (array[i])
 	{
-		if(array[i] == to_find)
-			return(1);
+		if (array[i] == to_find)
+			return (1);
 		i++;
 	}
 	return (0);
 }
-

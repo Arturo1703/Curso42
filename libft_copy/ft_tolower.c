@@ -6,13 +6,13 @@
 /*   By: arlopez- <arlopez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:08:00 by arlopez-          #+#    #+#             */
-/*   Updated: 2021/11/03 16:12:55 by arlopez-         ###   ########.fr       */
+/*   Updated: 2021/11/08 16:49:53 by arlopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (('A' <= c) && ('Z' >= c))
-			c += 32;
+	if (('A' <= c) && ('Z' >= c))
+		c += 32;
 	return (c);
 }

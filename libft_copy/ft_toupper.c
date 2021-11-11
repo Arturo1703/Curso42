@@ -6,13 +6,13 @@
 /*   By: arlopez- <arlopez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:06:11 by arlopez-          #+#    #+#             */
-/*   Updated: 2021/11/03 16:07:39 by arlopez-         ###   ########.fr       */
+/*   Updated: 2021/11/08 16:50:24 by arlopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if (('a' <= c) && ('z' >= c))
-			c -= 32;
+	if (('a' <= c) && ('z' >= c))
+		c -= 32;
 	return (c);
 }
