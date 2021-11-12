@@ -15,11 +15,18 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*result;
+	size_t	i;
+	size_t	j;
 
-	result = malloc(ft_strlen(s1) + ft_strlen(s2));
-	if ((ft_strlen(s1) != 0) && (result != 0))
-		ft_strlcpy(result, s1, ft_strlen(s1));
-	if ((ft_strlen(s2) != 0) && (result != 0))
-		ft_strlcat(result, (char *) s2, ft_strlen(s2));
+	result = (char *) malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (result == 0)
+		return (0);
+	i = 0;
+	j = 0;
+	while(s1[i])
+		result[i++] = (char *) s1[i];
+	while(s2[j])
+		result[i++] = (char *) s2[j++];
+	result[i] = 0;
 	return (result);
 }
