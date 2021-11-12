@@ -19,13 +19,15 @@ void	writenum(char *result, int num, int size);
 char	*ft_itoa(int n)
 {
 	int		size;
+	int		negative;
 	char	*result;
 
 	size = 0;
+	negative = 0;
 	if (n < 0)
-		size = 1;
+		negative = 1;
 	size += getnumsize(n);
-	result = malloc(size);
+	result = calloc(size + negative, 1);
 	if (result)
 		writenum(result, n, size);
 	return (result);
@@ -54,6 +56,11 @@ void	writenum(char *result, int num, int size)
 		pos++;
 	}
 	pos = 0;
+	if (num < 0)
+	{
+		result[pos++] = '-';
+		aux *= -1;
+	}
 	while (pos < size)
 	{
 		result[pos] = num / aux;
