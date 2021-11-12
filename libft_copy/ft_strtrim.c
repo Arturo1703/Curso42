@@ -17,24 +17,23 @@ int		findiftrim(char const to_find, char const *array);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*aux;
 	char	*result;
-	int		i;
-	int		size;
-
-	size = ft_strlen(s1);
-	aux = malloc(size);
+	int	i;
+	int	start;
+	int	end;
+	
+	start = 0;
+	end = 0
 	i = 0;
-	while (findiftrim(s1[i], set))
-	{
-		size--;
-		i++;
-	}
-	ft_strlcpy(aux, s1 + i, size);
-	while (findiftrim(aux[size - 1], set))
-		size --;
-	result = malloc(size);
-	ft_strlcpy(result, aux, size);
+	while (s1[i] && findiftrim(s1[i++], set))
+		start++;
+	i = ft_strlen(s1) - 1;
+	while (findiftrim(s1[i--], set))	
+		end++;
+	result = malloc(i - start + 1);
+	i = 0;
+	while (start < ft_strlen(s1) - end)
+		result[i++] = s1[start++];
 	return (result);
 }
 
