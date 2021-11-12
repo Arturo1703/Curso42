@@ -20,6 +20,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	result = (char *) malloc(len + 1);
 	if (result = 0)
 		return (0);
-	ft_strlcpy(result, s + start, len); 
+	ft_strlcpy(result, s + start, len + 1); 
 	return (result);
 }
