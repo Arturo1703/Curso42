@@ -20,13 +20,15 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		size;
 
 	size = ft_strlen(s);
-	result = malloc(size);
+	result = malloc(size + 1);
+	if (result == 0)
+		return (0);
 	i = 0;
-	while (i < size)
+	while (s[i])
 	{
-		result[i] = f(i, s[i]);
-		printf("%d ",i);
+		result[i] = f(i, (char) s[i]);
 		i++;
 	}
+	result[i] = 0;
 	return (result);
 }
