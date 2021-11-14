@@ -1,4 +1,4 @@
-SRCS	= ft_isdigit.c \
+MAND_SRCS	= ft_isdigit.c \
         ft_memset.c \
         ft_isprint.c \
         ft_strlcat.c \
@@ -21,9 +21,17 @@ SRCS	= ft_isdigit.c \
         ft_memmove.c \
         ft_strdup.c \
         ft_strrchr.c \
-
-OBJS	= ${SRCS:.c=.o}
-
+BONUS_SRCS	=ft_lstnew.c\
+	ft_lstadd_front.c	\
+	ft_lstsize.c		\
+	ft_lstlast.c		\
+	ft_lstadd_back.c	\
+	ft_lstdelone.c		\
+	ft_lstclear.c		\
+	ft_lstiter.c		\
+	ft_lstmap.c
+MAND_OBJS	= ${MAND_SRCS:.c=.o}
+BONUS_OBJS	= ${BONUS_SRCS:.c=.o}
 NAME	= libft.a
 
 CC		= gcc
@@ -36,15 +44,18 @@ LIB	= ar rcs
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}:	${OBJS}
-			ar rcs ${NAME} ${OBJS}
+${NAME}:	${MAND_OBJS}
+		ar rcs ${NAME} ${MAND_OBJS}
 
-all:	${NAME} ${OBJS}
+all:		${NAME} ${MAND_OBJS}
+
+bonus	:	$(MAND_OBJS) $(BONUS_OBJS) 
+		ar rcs ${NAME} $(BONUS_OBJS) $(MAND_OBJS)
 
 clean:
-			${RM} ${OBJS}
+		${RM} ${MAND_OBJS} ${BONUS_OBJS}
 
 fclean: 	clean
-			${RM} ${NAME}
+		${RM} ${NAME}
 			
 re:		fclean all
