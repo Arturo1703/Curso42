@@ -6,7 +6,7 @@
 /*   By: arlopez- <arlopez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:09:41 by Arturo            #+#    #+#             */
-/*   Updated: 2021/11/08 17:36:07 by arlopez-         ###   ########.fr       */
+/*   Updated: 2021/11/16 19:57:28 by arlopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,22 @@ int		findiftrim(char const to_find, char const *array);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*result;
-	int	i;
-	int	start;
-	int	end;
-	
+	char				*result;
+	int					i;
+	unsigned int		start;
+	int					end;
+
 	start = 0;
-	end = 0
+	end = 0;
 	i = 0;
 	while (s1[i] && findiftrim(s1[i++], set))
 		start++;
 	i = ft_strlen(s1) - 1;
-	while (findiftrim(s1[i--], set))	
+	while (i > 0 && findiftrim(s1[i--], set))
 		end++;
-	result = malloc(i - start + 1);
-	i = 0;
-	while (start < ft_strlen(s1) - end)
-		result[i++] = s1[start++];
+	if ((ft_strlen(s1) - start - end) <= 0)
+		return (ft_calloc(1, 1));
+	result = ft_substr(s1, start, ft_strlen(s1) - start - end);
 	return (result);
 }
 

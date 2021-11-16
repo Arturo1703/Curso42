@@ -19,9 +19,12 @@ MAND_SRCS	= ft_isdigit.c \
         ft_strnstr.c \
         ft_isascii.c \
         ft_memmove.c \
+        ft_substr.c \
+        ft_itoa.c \
         ft_strdup.c \
-        ft_strrchr.c \
-BONUS_SRCS	=ft_lstnew.c\
+        ft_strrchr.c
+
+BONUS_SRCS	= ft_lstnew.c\
 	ft_lstadd_front.c	\
 	ft_lstsize.c		\
 	ft_lstlast.c		\
@@ -30,15 +33,18 @@ BONUS_SRCS	=ft_lstnew.c\
 	ft_lstclear.c		\
 	ft_lstiter.c		\
 	ft_lstmap.c
+
 MAND_OBJS	= ${MAND_SRCS:.c=.o}
+
 BONUS_OBJS	= ${BONUS_SRCS:.c=.o}
+
 NAME	= libft.a
 
 CC		= gcc
 RM		= rm -f
 
-CFLAGS	= -Wall -Werror -Wextra
-
+CFLAGSExtra	= -g3 -fsanitize=address  -Wall -Werror -Wextra
+CFLAGS          = -g3  -Wall -Werror -Wextra
 LIB	= ar rcs
 
 .c.o:
@@ -50,7 +56,7 @@ ${NAME}:	${MAND_OBJS}
 all:		${NAME} ${MAND_OBJS}
 
 bonus	:	$(MAND_OBJS) $(BONUS_OBJS) 
-		ar rcs ${NAME} $(BONUS_OBJS) $(MAND_OBJS)
+		${LIB} ${NAME} $(BONUS_OBJS) $(MAND_OBJS)
 
 clean:
 		${RM} ${MAND_OBJS} ${BONUS_OBJS}
